@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Medical Gas Solutions - CryoGlobe Energy{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5" style="background: linear-gradient(rgba(30,40,60,0.85), rgba(30,40,60,0.85)), url('{% static 'images/medical-gases-bg.jpg' %}') center/cover; padding-top: 120px !important; min-height:40vh; display:flex; align-items:center;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="fw-bold mb-4 text-white animate__animated animate__fadeInDown">Medical Gas Solutions</h1>
+                <p class="lead text-white mb-4 animate__animated animate__fadeInUp" style="animation-delay:0.2s;">
+                    High-purity medical gases manufactured to meet stringent healthcare standards and requirements.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Overview -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                <div class="p-4 rounded-3 h-100" style="background:#f8fafc;">
+                    <h2 class="mb-4" style="color:#1e88e5;">Our Medical Gas Range</h2>
+                    <div class="d-flex align-items-start mb-3">
+                        <span class="me-3 text-primary"><i class="fas fa-check-circle fa-2x"></i></span>
+                        <div>
+                            <h5>Medical Oxygen</h5>
+                            <p>99.99% pure oxygen, essential for critical care and patient treatment in healthcare facilities.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <span class="me-3" style="color:#b85c38;"><i class="fas fa-check-circle fa-2x"></i></span>
+                        <div>
+                            <h5>Nitrous Oxide</h5>
+                            <p>Medical-grade nitrous oxide for surgical procedures and dental applications.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <span class="me-3 text-primary"><i class="fas fa-check-circle fa-2x"></i></span>
+                        <div>
+                            <h5>Medical Air</h5>
+                            <p>Clean, compressed medical air for respiratory therapy and medical device operation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 animate__animated animate__fadeInRight">
+                <img src="{% static 'images/Medical_Gas.jpeg' %}" 
+                     alt="Medical Gas Solutions" 
+                     class="img-fluid rounded-3 shadow-sm">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5" style="background:#f7fafc;">
+    <div class="container">
+        <h2 class="text-center mb-5 animate__animated animate__fadeInDown">Key Features & Benefits</h2>
+        <div class="row g-4">
+            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay:0.1s;">
+                <div class="feature-box p-4 bg-white rounded-3 shadow-sm h-100" style="border-left:4px solid #1e88e5;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon me-3" style="color:#1e88e5;">
+                            <i class="fas fa-microscope fa-2x"></i>
+                        </div>
+                        <h4 class="mb-0" style="color:#1e88e5;">High Purity</h4>
+                    </div>
+                    <p class="mb-0" style="color:#505050;">Meets or exceeds USP and EP standards for medical gas purity.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay:0.2s;">
+                <div class="feature-box p-4 bg-white rounded-3 shadow-sm h-100" style="border-left:4px solid #b85c38;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon me-3" style="color:#b85c38;">
+                            <i class="fas fa-truck-medical fa-2x"></i>
+                        </div>
+                        <h4 class="mb-0" style="color:#b85c38;">24/7 Supply</h4>
+                    </div>
+                    <p class="mb-0" style="color:#505050;">Round-the-clock emergency delivery service for healthcare facilities.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay:0.3s;">
+                <div class="feature-box p-4 bg-white rounded-3 shadow-sm h-100" style="border-left:4px solid #1e88e5;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon me-3" style="color:#1e88e5;">
+                            <i class="fas fa-certificate fa-2x"></i>
+                        </div>
+                        <h4 class="mb-0" style="color:#1e88e5;">Certified</h4>
+                    </div>
+                    <p class="mb-0" style="color:#505050;">Full compliance with medical standards and regulations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <h2 class="fw-bold mb-4" style="color:#1e88e5;">Why Choose CryoGlobe Energy?</h2>
+            <p class="lead mb-4">We are committed to providing the highest quality medical gases with unparalleled service and support.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Expertise</h5>
+                            <p class="card-text">Decades of experience in the medical gas industry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Quality Assurance</h5>
+                            <p class="card-text">Rigorous testing and quality control processes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Customer Focus</h5>
+                            <p class="card-text">Dedicated to meeting the needs of our healthcare partners.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+.feature-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+// ...same JavaScript as cryogenic_equipment.html...
+{% endblock %}

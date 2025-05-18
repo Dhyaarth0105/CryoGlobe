@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Products & Services - CryoGlobe Energy{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: #f7fafc; padding-top: 120px !important;">
+    <div class="container">
+        <h1 class="fw-bold mb-4 text-center" style="color:#1e88e5;">Our Products & Services</h1>
+        <p class="lead text-center mb-5" style="color:#23272b;">
+            At CryoGlobe Energy, we offer a comprehensive range of industrial, medical, and specialty gases, as well as cryogenic equipment and technical services to meet the diverse needs of our clients.
+        </p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card text-center h-100" data-animation="animate__fadeInUp">
+                    <span class="display-3 text-primary"><i class="fas fa-industry"></i></span>
+                    <h4 class="mt-3 mb-2">Industrial Gases</h4>
+                    <p>Oxygen, Nitrogen, Argon, Carbon Dioxide, Hydrogen, Helium, and more for manufacturing and processing industries.</p>
+                    <a href="{% url 'industrial_gases' %}" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card text-center h-100" data-animation="animate__fadeInUp">
+                    <span class="display-3 text-success"><i class="fas fa-heartbeat"></i></span>
+                    <h4 class="mt-3 mb-2">Medical Gases</h4>
+                    <p>Medical Oxygen, Nitrous Oxide, Medical Air, and other gases for hospitals and healthcare facilities.</p>
+                    <a href="{% url 'medical_gases' %}" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card text-center h-100" data-animation="animate__fadeInUp">
+                    <span class="display-3 text-info"><i class="fas fa-snowflake"></i></span>
+                    <h4 class="mt-3 mb-2">Cryogenic Equipment</h4>
+                    <p>Cryogenic tanks, vessels, and storage solutions for safe and efficient gas handling and distribution.</p>
+                    <a href="{% url 'cryogenic_equipment' %}" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card text-center h-100" data-animation="animate__fadeInUp">
+                    <span class="display-3 text-warning"><i class="fas fa-gas-pump"></i></span>
+                    <h4 class="mt-3 mb-2">Gas Cylinders</h4>
+                    <p>High-quality gas cylinders of various sizes and specifications for industrial and medical use.</p>
+                    <a href="{% url 'gas_cylinders' %}" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card text-center h-100" data-animation="animate__fadeInUp">
+                    <span class="display-3 text-secondary"><i class="fas fa-tools"></i></span>
+                    <h4 class="mt-3 mb-2">Gas Installations</h4>
+                    <p>Design, installation, and maintenance of gas pipeline systems and manifolds for industries and hospitals.</p>
+                    <a href="{% url 'gas_installations' %}" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card text-center h-100" data-animation="animate__fadeInUp">
+                    <span class="display-3 text-danger"><i class="fas fa-headset"></i></span>
+                    <h4 class="mt-3 mb-2">Technical Services</h4>
+                    <p>24/7 technical support, emergency supply, and maintenance services for all gas-related equipment.</p>
+                    <a href="{% url 'technical_services' %}" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+[data-animation] {
+    visibility: hidden;
+}
+.feature-card {
+    transition: transform 0.3s ease;
+}
+</style>
+{% endblock %}

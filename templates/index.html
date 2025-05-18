@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}CryoGlobe Energy - Industrial Gas Manufacturer & Supplier{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" style="background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat; position: relative;">
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(30,40,60,0.65);z-index:1;"></div>
+    <div class="container" style="position:relative;z-index:2;">
+        <div class="row hero-content">
+            <div class="col-lg-6">
+                <h1 class="display-4 text-white mb-4">Leading Manufacturer of Industrial Gases</h1>
+                <p class="lead text-white mb-4">
+                    Providing high-quality industrial, medical, and specialty gases with state-of-the-art technology and safety standards.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#products" class="btn btn-primary">Our Products</a>
+                    <a href="#contact" class="btn btn-outline-light">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Welcome Section -->
+<section class="welcome-section py-5" style="background: #f7fafc;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-3" style="color:#1e88e5;">Welcome to CryoGlobe Energy</h2>
+                <p class="lead" style="color:#23272b;">
+                    CryoGlobe Energy is one of the leading industrial gases companies in India. We are a premier manufacturer, exporter, and supplier of liquid and industrial gases, serving a wide range of industries with reliability and excellence.
+                </p>
+                <a href="{% url 'about' %}" class="btn btn-primary mt-3" style="background:#b85c38; border:none;">Read More</a>
+            </div>
+            <div class="col-lg-5 text-center">
+                <div style="background:#fff; border-radius:12px; box-shadow:0 4px 24px rgba(30,40,60,0.10); padding:16px; display:inline-block;">
+                    <img src="{% static 'images/about-img.png' %}" alt="CryoGlobe Energy Plant" class="img-fluid rounded" style="max-height:288px;object-fit:cover; background:#f7fafc;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features py-5 bg-white">
+    <div class="container">
+        <h2 class="section-heading text-center mb-5">Our Products & Services</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
+                    <img src="{% static 'images/industrial-gases.png' %}" alt="Industrial Gases" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="display-3 text-primary" style="display:none;"><i class="fas fa-industry"></i></span>
+                    <h3 class="h4 mb-3">Industrial Gases</h3>
+                    <p>High-purity industrial gases including Oxygen, Nitrogen, Argon, and specialty gas mixtures.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
+                    <img src="{% static 'images/medical-gases.png' %}" alt="Medical Gases" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="display-3 text-success" style="display:none;"><i class="fas fa-heartbeat"></i></span>
+                    <h3 class="h4 mb-3">Medical Gases</h3>
+                    <p>Medical-grade gases for healthcare facilities including Medical Oxygen, Nitrous Oxide, and Medical Air.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
+                    <img src="{% static 'images/cryogenic.png' %}" alt="Cryogenic Equipment" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="display-3 text-info" style="display:none;"><i class="fas fa-snowflake"></i></span>
+                    <h3 class="h4 mb-3">Cryogenic Equipment</h3>
+                    <p>High-quality cryogenic tanks, vessels and equipment for gas storage and handling.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
+                    <img src="{% static 'images/cylinders.png' %}" alt="Gas Cylinders" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="display-3 text-warning" style="display:none;"><i class="fas fa-gas-pump"></i></span>
+                    <h3 class="h4 mb-3">Gas Cylinders</h3>
+                    <p>Wide range of gas cylinders for industrial and medical applications with various capacities.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
+                    <img src="{% static 'images/installations.png' %}" alt="Gas Installations" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="display-3 text-secondary" style="display:none;"><i class="fas fa-tools"></i></span>
+                    <h3 class="h4 mb-3">Gas Installations</h3>
+                    <p>Complete gas pipeline systems, manifolds, and gas handling equipment installation services.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
+                    <img src="{% static 'images/service.png' %}" alt="Technical Services" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="display-3 text-danger" style="display:none;"><i class="fas fa-headset"></i></span>
+                    <h3 class="h4 mb-3">Technical Services</h3>
+                    <p>24/7 technical support, maintenance, and emergency services for all gas-related equipment.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'services' %}" class="btn btn-lg btn-primary" style="background:#1e88e5; border:none; font-weight:600;">
+                View All Services
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="products py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 animate__animated animate__fadeInDown">Our Products</h2>
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-md-4">
+                <div class="card product-card h-100 animate__animated animate__zoomIn" style="animation-delay: {{ forloop.counter0|add:"1"|floatformat:1 }}00ms;">
+                    <img src="{% static 'images/'|add:product.image %}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ product.name }}</h4>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats bg-gradient py-5">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.1s;">
+                    <h3 class="display-4 fw-bold counter" data-count="50">0</h3>
+                    <p>Industries Served</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.2s;">
+                    <h3 class="display-4 fw-bold counter" data-count="1000">0</h3>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.3s;">
+                    <h3 class="display-4 fw-bold counter" data-count="24">0</h3>
+                    <p>Hour Support</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.4s;">
+                    <h3 class="display-4 fw-bold counter" data-count="99">0</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact py-5" style="background: linear-gradient(135deg, #fffbe7 0%, #ffe5ec 100%); color: #3a2323;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="mb-4" style="color:#a03c18;">Get In Touch</h2>
+                <form class="contact-form">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Your Name" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email Address" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;">
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-control" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;">
+                            <option>Select Product</option>
+                            <option>Industrial Gases</option>
+                            <option>Cryogenic Equipment</option>
+                            <option>Gas Cylinders</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="4" placeholder="Message" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="background:#a03c18; border:none;">Send Message</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="map-container" style="border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(184,92,56,0.15);">
+                    <!-- Add your Google Maps embed code here -->
+                    <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animate.css delay for product cards
+    document.addEventListener("DOMContentLoaded", function() {
+        // Counter animation for stats
+        function animateCounter(el) {
+            const target = +el.getAttribute('data-count');
+            let count = 0;
+            const increment = target > 100 ? Math.ceil(target / 100) : 1;
+            const duration = 1200;
+            const stepTime = Math.abs(Math.floor(duration / target));
+            function updateCounter() {
+                count += increment;
+                if(count > target) count = target;
+                el.textContent = count + (target < 100 ? '+' : '');
+                if(count < target) {
+                    setTimeout(updateCounter, stepTime);
+                }
+            }
+            updateCounter();
+        }
+        document.querySelectorAll('.counter').forEach(animateCounter);
+
+        // Animate.css delay for product cards
+        document.querySelectorAll('.product-card').forEach(function(card, i){
+            card.style.animationDelay = (i * 0.15) + "s";
+        });
+
+        // Intersection Observer for scroll-triggered animations
+        const observer = new window.IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const anim = el.getAttribute('data-animate');
+                    el.classList.add('animate__animated', anim);
+                    el.style.opacity = 1;
+                    obs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+{% endblock %}
