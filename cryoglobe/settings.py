@@ -117,8 +117,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# Static files configuration
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -137,16 +141,13 @@ CSRF_TRUSTED_ORIGINS = [
     'http://192.168.29.126:8000'
 ]
 
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-
-# Add CSP headers
-CSP_DEFAULT_SRC = ("'self'", "*.jsdelivr.net", "*.googleapis.com")
-CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "*.googleapis.com", "*.jsdelivr.net")
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "'unsafe-eval'", "*.jsdelivr.net")
-CSP_FONT_SRC = ("'self'", "fonts.gstatic.com", "*.googleapis.com")
-CSP_IMG_SRC = ("'self'", "data:", "*.jsdelivr.net")
+# For production
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Email Settings for Gmail
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
