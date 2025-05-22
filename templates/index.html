@@ -4,40 +4,214 @@
 
 {% block title %}CryoGlobe Energy - Industrial Gas Manufacturer & Supplier{% endblock %}
 
+{% block extra_css %}
+<style>
+/* Section dividers */
+.section-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #1e88e5 60%, #b85c38 100%);
+    margin: 0 auto 2rem auto;
+    border-radius: 2px;
+}
+.hero-scroll-down {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: bounce 1.8s infinite;
+    color: #fff;
+    font-size: 2rem;
+    opacity: 0.8;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0);}
+    50% { transform: translateX(-50%) translateY(12px);}
+}
+.feature-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(30,40,60,0.10);
+    padding: 32px 20px 28px 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    min-height: 340px;
+}
+.feature-card:hover {
+    box-shadow: 0 8px 32px rgba(30,136,229,0.12);
+    transform: translateY(-6px) scale(1.03);
+}
+.product-card {
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(30,40,60,0.10);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.product-card:hover {
+    box-shadow: 0 8px 32px rgba(30,136,229,0.12);
+    transform: translateY(-6px) scale(1.03);
+}
+.stat-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(30,40,60,0.10);
+    padding: 32px 0;
+    margin-bottom: 16px;
+}
+.trust-badges img {
+    height: 38px;
+    margin-right: 18px;
+    margin-bottom: 10px;
+}
+.partner-logos img {
+    height: 38px;
+    margin: 0 18px 10px 0;
+    filter: grayscale(1) opacity(0.7);
+    transition: filter 0.2s;
+}
+.partner-logos img:hover {
+    filter: none;
+}
+.testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(30,40,60,0.10);
+    padding: 28px 24px;
+    margin-bottom: 24px;
+}
+.newsletter-box {
+    background: #f7fafc;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 2px 12px rgba(30,136,229,0.06);
+}
+@media (max-width: 991.98px) {
+    .hero .display-3 {
+        font-size: 2rem !important;
+        line-height: 2.4rem !important;
+    }
+    .hero-content {
+        min-height: 340px !important;
+    }
+    .feature-card, .stat-card, .testimonial-card {
+        padding: 18px 8px !important;
+        min-height: unset !important;
+    }
+    .feature-card h3, .feature-card .h4 {
+        font-size: 1.1rem !important;
+    }
+    .product-card {
+        margin-bottom: 18px;
+    }
+    .section-divider {
+        margin-bottom: 1rem !important;
+    }
+    .newsletter-box {
+        padding: 18px 8px !important;
+    }
+    .hero-scroll-down {
+        font-size: 1.2rem;
+        bottom: 12px;
+    }
+    .col-lg-7, .col-lg-5, .col-lg-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .row.align-items-center {
+        flex-direction: column;
+    }
+    .d-flex.gap-3 {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    .testimonial-card {
+        margin-bottom: 16px;
+    }
+    .partner-logos img {
+        margin: 0 8px 8px 0;
+        height: 28px;
+    }
+    .stat-card .display-4, .stat-card .display-5 {
+        font-size: 1.5rem !important;
+    }
+    .feature-card .display-3 {
+        font-size: 2rem !important;
+    }
+    .product-card img {
+        max-height: 180px;
+        object-fit: cover;
+    }
+}
+@media (max-width: 575.98px) {
+    .hero .display-3 {
+        font-size: 1.3rem !important;
+        line-height: 1.6rem !important;
+    }
+    .feature-card, .stat-card, .testimonial-card {
+        padding: 10px 4px !important;
+    }
+    .product-card img {
+        max-height: 120px;
+    }
+    .container {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+}
+</style>
+{% endblock %}
+
 {% block content %}
 <!-- Hero Section -->
-<section class="hero" style="background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat; position: relative;">
+<section class="hero position-relative" style="background: url('{% static 'images/hero-bg.jpg' %}') center center/cover no-repeat; min-height: 540px;">
     <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(30,40,60,0.65);z-index:1;"></div>
-    <div class="container" style="position:relative;z-index:2;">
-        <div class="row hero-content">
-            <div class="col-lg-6">
-                <h1 class="display-4 text-white mb-4">Leading Manufacturer of Industrial Gases</h1>
-                <p class="lead text-white mb-4">
-                    Providing high-quality industrial, medical, and specialty gases with state-of-the-art technology and safety standards.
+    <div class="container position-relative z-2" style="z-index:2;">
+        <div class="row hero-content align-items-center" style="min-height:540px;">
+            <div class="col-lg-7">
+                <h1 class="display-3 fw-bold text-white mb-3 animate__animated animate__fadeInDown" style="letter-spacing:-1px;">
+                    <span style="color:#1e88e5;">Industrial Gases</span> & <span style="color:#b85c38;">Cryogenic Solutions</span> for Every Industry
+                </h1>
+                <p class="lead text-white mb-4 animate__animated animate__fadeInUp">
+                    Reliable, safe, and innovative gas manufacturing, supply, and technical services for healthcare, industry, and research.
                 </p>
-                <div class="d-flex gap-3">
-                    <a href="#products" class="btn btn-primary">Our Products</a>
-                    <a href="#contact" class="btn btn-outline-light">Contact Us</a>
+                <div class="d-flex gap-3 mb-3 animate__animated animate__fadeInUp">
+                    <a href="#products" class="btn btn-lg btn-primary" style="background:#1e88e5; border:none;">Our Products</a>
+                    <a href="#contact" class="btn btn-lg btn-outline-light">Contact Us</a>
+                    <a href="{% url 'about' %}" class="btn btn-lg btn-light" style="color:#1e88e5;">About Us</a>
+                </div>
+                <div class="trust-badges mt-3">
+                    <!-- Removed ISO Certified, GMP Certified, MSME Registered -->
                 </div>
             </div>
         </div>
     </div>
+    <a href="#welcome" class="hero-scroll-down" aria-label="Scroll Down">
+        <i class="fas fa-chevron-down"></i>
+    </a>
 </section>
 
 <!-- Welcome Section -->
-<section class="welcome-section py-5" style="background: #f7fafc;">
+<section id="welcome" class="welcome-section py-5" style="background: #f7fafc;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 mb-4 mb-lg-0">
                 <h2 class="fw-bold mb-3" style="color:#1e88e5;">Welcome to CryoGlobe Energy</h2>
+                <div class="section-divider"></div>
                 <p class="lead" style="color:#23272b;">
-                    CryoGlobe Energy is one of the leading industrial gases companies in India. We are a premier manufacturer, exporter, and supplier of liquid and industrial gases, serving a wide range of industries with reliability and excellence.
+                    CryoGlobe Energy is one of India's leading industrial gas manufacturers and exporters, delivering high-purity gases and cryogenic solutions to diverse industries. Our commitment to quality, safety, and innovation sets us apart.
                 </p>
-                <a href="{% url 'about' %}" class="btn btn-primary mt-3" style="background:#b85c38; border:none;">Read More</a>
+                <ul class="list-unstyled mb-3">
+                    <li><i class="fas fa-check-circle text-success me-2"></i> ISO & GMP Certified Manufacturing</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i> 24/7 Technical Support & Emergency Supply</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i> Custom Gas Mixtures & Turnkey Installations</li>
+                </ul>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'about' %}" class="btn btn-primary" style="background:#b85c38; border:none;">Read More</a>
+                    <!-- Removed Watch Video button -->
+                </div>
             </div>
             <div class="col-lg-5 text-center">
                 <div style="background:#fff; border-radius:12px; box-shadow:0 4px 24px rgba(30,40,60,0.10); padding:16px; display:inline-block;">
-                    <img src="{% static 'images/about-img.png' %}" alt="CryoGlobe Energy Plant" class="img-fluid rounded" style="max-height:288px;object-fit:cover; background:#f7fafc;">
+                    <img src="{% static 'images/about-img.png' %}" alt="CryoGlobe Energy Plant" class="img-fluid rounded" style="max-height:288px;object-fit:cover; background:#f7fafc;" loading="lazy">
                 </div>
             </div>
         </div>
@@ -47,54 +221,55 @@
 <!-- Features Section -->
 <section class="features py-5 bg-white">
     <div class="container">
-        <h2 class="section-heading text-center mb-5">Our Products & Services</h2>
+        <h2 class="section-heading text-center mb-2">Our Products & Services</h2>
+        <div class="section-divider"></div>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
-                    <img src="{% static 'images/industrial-gases.png' %}" alt="Industrial Gases" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
-                    <span class="display-3 text-primary" style="display:none;"><i class="fas fa-industry"></i></span>
+                    <span class="display-3 text-primary mb-3"><i class="fas fa-industry"></i></span>
                     <h3 class="h4 mb-3">Industrial Gases</h3>
-                    <p>High-purity industrial gases including Oxygen, Nitrogen, Argon, and specialty gas mixtures.</p>
+                    <p>High-purity Oxygen, Nitrogen, Argon, and specialty gas mixtures for manufacturing, welding, and more.</p>
+                    <a href="{% url 'industrial_gases' %}" class="btn btn-link text-primary">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
-                    <img src="{% static 'images/medical-gases.png' %}" alt="Medical Gases" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
-                    <span class="display-3 text-success" style="display:none;"><i class="fas fa-heartbeat"></i></span>
+                    <span class="display-3 text-success mb-3"><i class="fas fa-heartbeat"></i></span>
                     <h3 class="h4 mb-3">Medical Gases</h3>
-                    <p>Medical-grade gases for healthcare facilities including Medical Oxygen, Nitrous Oxide, and Medical Air.</p>
+                    <p>Medical Oxygen, Nitrous Oxide, and Medical Air for hospitals, clinics, and healthcare facilities.</p>
+                    <a href="{% url 'medical_gases' %}" class="btn btn-link text-primary">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
-                    <img src="{% static 'images/cryogenic.png' %}" alt="Cryogenic Equipment" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
-                    <span class="display-3 text-info" style="display:none;"><i class="fas fa-snowflake"></i></span>
+                    <span class="display-3 text-info mb-3"><i class="fas fa-snowflake"></i></span>
                     <h3 class="h4 mb-3">Cryogenic Equipment</h3>
-                    <p>High-quality cryogenic tanks, vessels and equipment for gas storage and handling.</p>
+                    <p>High-quality cryogenic tanks, vessels, and equipment for safe gas storage and handling.</p>
+                    <a href="{% url 'cryogenic_equipment' %}" class="btn btn-link text-primary">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
-                    <img src="{% static 'images/cylinders.png' %}" alt="Gas Cylinders" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
-                    <span class="display-3 text-warning" style="display:none;"><i class="fas fa-gas-pump"></i></span>
+                    <span class="display-3 text-warning mb-3"><i class="fas fa-gas-pump"></i></span>
                     <h3 class="h4 mb-3">Gas Cylinders</h3>
                     <p>Wide range of gas cylinders for industrial and medical applications with various capacities.</p>
+                    <a href="{% url 'gas_cylinders' %}" class="btn btn-link text-primary">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
-                    <img src="{% static 'images/installations.png' %}" alt="Gas Installations" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
-                    <span class="display-3 text-secondary" style="display:none;"><i class="fas fa-tools"></i></span>
+                    <span class="display-3 text-secondary mb-3"><i class="fas fa-tools"></i></span>
                     <h3 class="h4 mb-3">Gas Installations</h3>
                     <p>Complete gas pipeline systems, manifolds, and gas handling equipment installation services.</p>
+                    <a href="{% url 'gas_installations' %}" class="btn btn-link text-primary">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card text-center animate-on-scroll" data-animate="animate__zoomIn" style="opacity:0;">
-                    <img src="{% static 'images/service.png' %}" alt="Technical Services" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
-                    <span class="display-3 text-danger" style="display:none;"><i class="fas fa-headset"></i></span>
+                    <span class="display-3 text-danger mb-3"><i class="fas fa-headset"></i></span>
                     <h3 class="h4 mb-3">Technical Services</h3>
                     <p>24/7 technical support, maintenance, and emergency services for all gas-related equipment.</p>
+                    <a href="{% url 'technical_services' %}" class="btn btn-link text-primary">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -106,17 +281,32 @@
     </div>
 </section>
 
+<!-- Partner Logos -->
+<section class="py-4 bg-white">
+    <div class="container text-center">
+        <div class="partner-logos d-flex flex-wrap justify-content-center align-items-center">
+            <!-- Removed Partner 1 and Partner 2 -->
+        </div>
+    </div>
+</section>
+
 <!-- Products Section -->
 <section id="products" class="products py-5">
     <div class="container">
-        <h2 class="text-center mb-5 animate__animated animate__fadeInDown">Our Products</h2>
-        <div class="row g-4">
+        <h2 class="text-center mb-2 animate__animated animate__fadeInDown">Our Products</h2>
+        <div class="section-divider"></div>
+        <div class="row g-4" id="productList">
             {% for product in products %}
-            <div class="col-md-4">
+            <div class="col-md-4 product-item" data-name="{{ product.name|lower }}">
                 <div class="card product-card h-100 animate__animated animate__zoomIn" style="animation-delay: {{ forloop.counter0|add:"1"|floatformat:1 }}00ms;">
-                    <img src="{% static 'images/'|add:product.image %}" class="card-img-top" alt="{{ product.name }}">
+                    <img src="{% static 'images/'|add:product.image %}" class="card-img-top" alt="{{ product.name }}" loading="lazy">
                     <div class="card-body">
-                        <h4 class="card-title">{{ product.name }}</h4>
+                        <h4 class="card-title d-flex align-items-center">
+                            {{ product.name }}
+                            {% if product.is_best_seller %}
+                                <span class="badge bg-success ms-2">Best Seller</span>
+                            {% endif %}
+                        </h4>
                         <p class="card-text">{{ product.description }}</p>
                         <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">Learn More</a>
                     </div>
@@ -128,30 +318,34 @@
 </section>
 
 <!-- Stats Section -->
-<section class="stats bg-gradient py-5">
+<section class="stats bg-gradient py-5" style="background: linear-gradient(90deg, #e3f2fd 0%, #fffbe7 100%);">
     <div class="container">
         <div class="row text-center g-4">
             <div class="col-md-3">
                 <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.1s;">
-                    <h3 class="display-4 fw-bold counter" data-count="50">0</h3>
+                    <span class="display-4 text-primary"><i class="fas fa-industry"></i></span>
+                    <h3 class="display-5 fw-bold counter" data-count="50">0</h3>
                     <p>Industries Served</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.2s;">
-                    <h3 class="display-4 fw-bold counter" data-count="1000">0</h3>
+                    <span class="display-4 text-success"><i class="fas fa-users"></i></span>
+                    <h3 class="display-5 fw-bold counter" data-count="1000">0</h3>
                     <p>Happy Clients</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.3s;">
-                    <h3 class="display-4 fw-bold counter" data-count="24">0</h3>
+                    <span class="display-4 text-info"><i class="fas fa-clock"></i></span>
+                    <h3 class="display-5 fw-bold counter" data-count="24">0</h3>
                     <p>Hour Support</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.4s;">
-                    <h3 class="display-4 fw-bold counter" data-count="99">0</h3>
+                    <span class="display-4 text-warning"><i class="fas fa-smile"></i></span>
+                    <h3 class="display-5 fw-bold counter" data-count="99">0</h3>
                     <p>Satisfaction Rate</p>
                 </div>
             </div>
@@ -159,37 +353,125 @@
     </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact py-5" style="background: linear-gradient(135deg, #fffbe7 0%, #ffe5ec 100%); color: #3a2323;">
+<!-- Testimonials Section -->
+<section class="py-5 bg-white">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 class="mb-4" style="color:#a03c18;">Get In Touch</h2>
-                <form class="contact-form">
-                    <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Your Name" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;">
+        <h2 class="text-center mb-2">What Our Clients Say</h2>
+        <div class="section-divider"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="testimonial-card text-center">
+                    <p class="mb-3">"CryoGlobe Energy's service is outstanding. Their gases are always pure and delivered on time!"</p>
+                    <div class="fw-bold">— R. Patel, Pharma Industry</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card text-center">
+                    <p class="mb-3">"We trust CryoGlobe for all our medical gas needs. Highly recommended for reliability."</p>
+                    <div class="fw-bold">— Dr. S. Mehta, Hospital Admin</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card text-center">
+                    <p class="mb-3">"Their technical support and installation team are top-notch. Great experience!"</p>
+                    <div class="fw-bold">— A. Sharma, Engineering</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5" style="background: #f7fafc; padding-top: 120px !important;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="fw-bold mb-3" style="color:#1e88e5;">Get In Touch</h1>
+                <p class="lead mb-5" style="color:#23272b;">Have questions about our products or services? We're here to help!</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Quick Contact Cards -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow" style="transition: all 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:64px;height:64px;background:#1e88e5!important;">
+                            <i class="fas fa-phone text-white fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Call Us</h4>
+                        <p class="mb-2">Sales & Support</p>
+                        <a href="tel:+911234567890" class="text-primary" style="color:#1e88e5!important;text-decoration:none;">+91 1234567890</a>
                     </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" placeholder="Email Address" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow" style="transition: all 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:64px;height:64px;background:#b85c38!important;">
+                            <i class="fas fa-envelope text-white fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Email Us</h4>
+                        <p class="mb-2">For Inquiries</p>
+                        <a href="mailto:info@cryoglobe.com" style="color:#b85c38!important;text-decoration:none;">info@cryoglobe.com</a>
                     </div>
-                    <div class="mb-3">
-                        <select class="form-control" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;">
-                            <option>Select Product</option>
-                            <option>Industrial Gases</option>
-                            <option>Cryogenic Equipment</option>
-                            <option>Gas Cylinders</option>
-                        </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow" style="transition: all 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:64px;height:64px;background:#1e88e5!important;">
+                            <i class="fas fa-map-marker-alt text-white fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Visit Us</h4>
+                        <p class="mb-2">Our Location</p>
+                        <span style="color:#23272b;">Olpad, Gujarat, India</span>
                     </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" rows="4" placeholder="Message" style="background:#fff8f0; color:#3a2323; border:1px solid #e0bfae;"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4" style="color:#1e88e5;">Send Message</h3>
+                        <form id="mainContactForm" novalidate>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                                <label for="email">Email Address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="service" name="service" required>
+                                    <option value="" selected disabled>Select Service</option>
+                                    <option value="Industrial Gases">Industrial Gases</option>
+                                    <option value="Medical Gases">Medical Gases</option>
+                                    <option value="Cryogenic Equipment">Cryogenic Equipment</option>
+                                    <option value="Gas Cylinders">Gas Cylinders</option>
+                                    <option value="Gas Installations">Gas Installations</option>
+                                    <option value="Technical Services">Technical Services</option>
+                                </select>
+                                <label for="service">Service Interest</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" name="message" style="height:120px" placeholder="Message" required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-3" style="background:#b85c38; border:none;">Send Message</button>
+                            <div id="contactMsg" class="text-success mt-2" style="display:none;">Thank you! We'll get back to you soon.</div>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="background:#a03c18; border:none;">Send Message</button>
-                </form>
+                </div>
             </div>
             <div class="col-lg-6">
-                <div class="map-container" style="border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(184,92,56,0.15);">
-                    <!-- Add your Google Maps embed code here -->
-                    <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-0">
+                        <div class="ratio ratio-4x3">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4311957805!2d72.75176!3d21.133625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA4JzAxLjEiTiA3MsKwNDUnMDYuMyJF!5e0!3m2!1sen!2sin!4v1637309132294!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,14 +479,8 @@
 </section>
 {% endblock %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-{% endblock %}
-
 {% block extra_js %}
 <script>
-    // Animate.css delay for product cards
     document.addEventListener("DOMContentLoaded", function() {
         // Counter animation for stats
         function animateCounter(el) {
@@ -246,6 +522,18 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
+
+        // Contact form validation
+        const contactForm = document.getElementById('mainContactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (contactForm.checkValidity()) {
+                    document.getElementById('contactMsg').style.display = 'block';
+                    contactForm.reset();
+                }
+            });
+        }
     });
 </script>
 {% endblock %}

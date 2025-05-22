@@ -17,49 +17,24 @@ def contact(request):
         try:
             name = request.POST.get('name')
             email = request.POST.get('email')
+            phone = request.POST.get('phone', '')
             service = request.POST.get('service')
             message = request.POST.get('message')
 
-            # Save to database first
+            # Save to database
             contact_entry = Contact.objects.create(
                 name=name,
                 email=email,
+                phone=phone,
                 service=service,
                 message=message
             )
 
-            # Prepare email with better formatting
-            subject = f'New Contact Form Submission - {service}'
-            email_message = f"""
-New Contact Form Submission:
-
-From: {name} ({email})
-Service Interest: {service}
-
-Message:
-{message}
-
-Best regards,
-CryoGlobe Energy Contact Form
-"""
-            try:
-                send_mail(
-                    subject=subject,
-                    message=email_message,
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=['info@cryoglobeenergy.com'],
-                    fail_silently=False,
-                )
-                messages.success(request, 'Thank you for contacting us! We will get back to you soon.')
-            except Exception as e:
-                print(f"Email error details: {str(e)}")
-                raise
-
+            messages.success(request, 'Thank you for contacting us! We have received your message.')
+            return redirect('contact')
         except Exception as e:
             print(f"Contact form error: {str(e)}")
             messages.error(request, 'There was an error sending your message. Please try again later.')
-
-        return redirect('contact')
 
     return render(request, 'contact.html')
 

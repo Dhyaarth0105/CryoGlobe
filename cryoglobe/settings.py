@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-o)@lrtv_0(@x-s-m=4ai!$i3#w!*s0u0cjbv!qbo4bmyr^np7i
 DEBUG = True
 
 # Single definition of ALLOWED_HOSTS
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.29.126']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.20.10.5','192.168.29.126']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [

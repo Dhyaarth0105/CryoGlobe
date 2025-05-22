@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.cryoglobeenergy.com/sitemap.xml
