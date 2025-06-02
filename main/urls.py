@@ -14,3 +14,4 @@ urlpatterns = [
     path('services/gas-installations/', views.gas_installations, name='gas_installations'),
     path('services/technical-services/', views.technical_services, name='technical_services'),
 ]
+
