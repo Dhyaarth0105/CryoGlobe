@@ -65,8 +65,15 @@
 {% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- Preload Font Awesome and Animate.css for faster rendering -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</noscript>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</noscript>
 <style>
 [data-animation] {
     visibility: hidden;
@@ -75,4 +82,20 @@
     transition: transform 0.3s ease;
 }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+window.addEventListener('load', function() {
+    // Reveal elements with data-animation after all resources are loaded
+    document.querySelectorAll('[data-animation]').forEach(function(el) {
+        el.style.visibility = 'visible';
+        // Optionally, add the animation class if needed
+        var anim = el.getAttribute('data-animation');
+        if (anim) {
+            el.classList.add('animate__animated', anim);
+        }
+    });
+});
+</script>
 {% endblock %}
