@@ -89,21 +89,15 @@
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 4px 32px rgba(30,136,229,0.10);
-    min-height: 340px;
+    min-height: 260px;
     margin-bottom: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .faq-section {
-    margin-top: 64px;
-    margin-bottom: 40px;
-}
-.faq-section .accordion-button {
-    font-weight: 600;
-    color: #1e88e5;
-    background: #f7fafc;
-}
-.faq-section .accordion-body {
-    color: #23272b;
-    background: #fff;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
 @media (max-width: 991.98px) {
     .contact-form-section {
@@ -111,12 +105,12 @@
         margin-bottom: 32px;
     }
     .contact-map {
-        min-height: 220px;
+        min-height: 180px;
         margin-bottom: 32px;
     }
     .faq-section {
         margin-top: 40px;
-        margin-bottom: 24px;
+        margin-bottom: 40px;
     }
     .contact-cards {
         margin-bottom: 32px;
@@ -141,6 +135,21 @@
     }
     .contact-cards {
         margin-bottom: 18px;
+    }
+}
+@media (min-width: 992px) {
+    .contact-map,
+    .contact-form-section {
+        height: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+    }
+    .contact-map iframe {
+        flex: 1 1 auto;
+        height: 100%;
+        min-height: 100%;
     }
 }
 </style>
@@ -208,35 +217,52 @@
                     {% endfor %}
                 </div>
                 {% endif %}
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    There was an error sending your message. Please check the form and try again.
+                </div>
+                {% endif %}
                 <form method="POST" id="mainContactForm" novalidate>
                     {% csrf_token %}
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                        <input type="text" class="form-control{% if form.errors.name %} is-invalid{% endif %}" id="name" name="name" placeholder="Your Name" required value="{{ form.name|default:'' }}">
                         <label for="name">Your Name</label>
+                        {% if form.errors.name %}
+                        <div class="invalid-feedback">{{ form.errors.name }}</div>
+                        {% endif %}
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                        <input type="email" class="form-control{% if form.errors.email %} is-invalid{% endif %}" id="email" name="email" placeholder="Email Address" required value="{{ form.email|default:'' }}">
                         <label for="email">Email Address</label>
+                        {% if form.errors.email %}
+                        <div class="invalid-feedback">{{ form.errors.email }}</div>
+                        {% endif %}
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone (optional)">
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone (optional)" value="{{ form.phone|default:'' }}">
                         <label for="phone">Phone (optional)</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="service" name="service" required>
-                            <option value="" selected disabled>Select Service</option>
-                            <option value="Industrial Gases">Industrial Gases</option>
-                            <option value="Medical Gases">Medical Gases</option>
-                            <option value="Cryogenic Equipment">Cryogenic Equipment</option>
-                            <option value="Gas Cylinders">Gas Cylinders</option>
-                            <option value="Gas Installations">Gas Installations</option>
-                            <option value="Technical Services">Technical Services</option>
+                        <select class="form-select{% if form.errors.service %} is-invalid{% endif %}" id="service" name="service" required>
+                            <option value="" disabled {% if not form.service %}selected{% endif %}>Select Service</option>
+                            <option value="Industrial Gases" {% if form.service == "Industrial Gases" %}selected{% endif %}>Industrial Gases</option>
+                            <option value="Medical Gases" {% if form.service == "Medical Gases" %}selected{% endif %}>Medical Gases</option>
+                            <option value="Cryogenic Equipment" {% if form.service == "Cryogenic Equipment" %}selected{% endif %}>Cryogenic Equipment</option>
+                            <option value="Gas Cylinders" {% if form.service == "Gas Cylinders" %}selected{% endif %}>Gas Cylinders</option>
+                            <option value="Gas Installations" {% if form.service == "Gas Installations" %}selected{% endif %}>Gas Installations</option>
+                            <option value="Technical Services" {% if form.service == "Technical Services" %}selected{% endif %}>Technical Services</option>
                         </select>
                         <label for="service">Service Interest</label>
+                        {% if form.errors.service %}
+                        <div class="invalid-feedback d-block">{{ form.errors.service }}</div>
+                        {% endif %}
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" name="message" style="height:120px" placeholder="Message" required></textarea>
+                        <textarea class="form-control{% if form.errors.message %} is-invalid{% endif %}" id="message" name="message" style="height:120px" placeholder="Message" required>{{ form.message|default:'' }}</textarea>
                         <label for="message">Message</label>
+                        {% if form.errors.message %}
+                        <div class="invalid-feedback">{{ form.errors.message }}</div>
+                        {% endif %}
                     </div>
                     <button type="submit" class="btn btn-modern w-100 py-3">Send Message</button>
                 </form>
@@ -248,16 +274,18 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="contact-map animate__animated animate__fadeInRight">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4311957805!2d72.75176!3d21.133625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA4JzAxLjEiTiA3MsKwNDUnMDYuMyJF!5e0!3m2!1sen!2sin!4v1637309132294!5m2!1sen!2sin"
-                    width="100%" height="100%" style="border:0; min-height:340px;" allowfullscreen="" loading="lazy" title="CryoGlobe Energy Location"></iframe>
+            <div class="contact-map animate__animated animate__fadeInRight h-100" style="height:75%;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4311957805!2d72.75176!3d21.133625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be1b50048eb4863%3A0x902088f19f15badf!2sCryoglobe%20Energy%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1717777777777!5m2!1sen!2sin" 
+                    width="100%" height="100%" style="border:0; min-height:260px; height:100%; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="CryoGlobe Energy Location"></iframe>
             </div>
         </div>
     </div>
 </div>
 
 <!-- FAQ Section -->
-<div class="container faq-section">
+<div class="container faq-section" style="margin-top:40px; margin-bottom:60px;">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <h3 class="mb-4 text-center" style="color:#1e88e5;">Frequently Asked Questions</h3>

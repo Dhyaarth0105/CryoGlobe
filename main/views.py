@@ -14,30 +14,56 @@ def about(request):
     return render(request, 'about.html', {'about_image': about_image})
 
 def contact(request):
+    form = {}
     if request.method == 'POST':
-        try:
-            name = request.POST.get('name')
-            email = request.POST.get('email')
-            phone = request.POST.get('phone', '')
-            service = request.POST.get('service')
-            message = request.POST.get('message')
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        phone = request.POST.get('phone', '').strip()
+        service = request.POST.get('service', '').strip()
+        message = request.POST.get('message', '').strip()
 
+        # Basic validation
+        errors = {}
+        if not name:
+            errors['name'] = "Name is required."
+        if not email:
+            errors['email'] = "Email is required."
+        if not service:
+            errors['service'] = "Service is required."
+        if not message:
+            errors['message'] = "Message is required."
+
+        form = {
+            'name': name,
+            'email': email,
+            'phone': phone,
+            'service': service,
+            'message': message,
+            'errors': errors
+        }
+
+        if errors:
+            messages.error(request, 'There was an error sending your message. Please check the form and try again.')
+            return render(request, 'contact.html', {'form': form})
+
+        try:
             # Save to database
             contact_entry = Contact.objects.create(
                 name=name,
                 email=email,
-                phone=phone,
                 service=service,
                 message=message
             )
-
             messages.success(request, 'Thank you for contacting us! We have received your message.')
             return redirect('contact')
         except Exception as e:
-            print(f"Contact form error: {str(e)}")
-            messages.error(request, 'There was an error sending your message. Please try again later.')
+            import traceback
+            print("Contact form error:", str(e))
+            traceback.print_exc()  # This will print the full error stack trace
+            messages.error(request, f'There was an error sending your message. Please try again later. ({str(e)})')
+            return render(request, 'contact.html', {'form': form})
 
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', {'form': form})
 
 def portfolio(request):
     return render(request, 'portfolio.html')
