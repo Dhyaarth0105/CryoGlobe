@@ -122,7 +122,19 @@
     }
 }
 
+.hero.position-relative {
+    background: url('{% static 'images/gas-manufacturing-hero.jpg' %}') center center/cover no-repeat;
+    min-height: 540px;
+    background-attachment: fixed;
+}
+
 @media (max-width: 991.98px) {
+    .hero.position-relative {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
+        min-height: 340px !important;
+    }
     .hero .display-3 {
         font-size: 2rem !important;
         line-height: 2.4rem !important;
@@ -180,6 +192,12 @@
     }
 }
 @media (max-width: 575.98px) {
+    .hero.position-relative {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
+        min-height: 220px !important;
+    }
     .hero .display-3 {
         font-size: 1.3rem !important;
         line-height: 1.6rem !important;
